@@ -1,16 +1,16 @@
 <?php
-include '../layout/header.php';
+    include '../layout/header.php';
 
-$id = empty($_GET['id'])?$_POST['id'] : $_GET['id'];
-$sql = "select * from tacgia where ma_tgia=$id";
-try {
-    $statement = $connect->prepare($sql);
-    $statement->execute();
-    $author = $statement->fetch();
+    $id = empty($_GET['id'])?$_POST['id'] : $_GET['id'];
+    $sql = "select * from tacgia where ma_tgia=$id";
+    try {
+        $statement = $connect->prepare($sql);
+        $statement->execute();
+        $author = $statement->fetch();
 //        header("Location: category.php");
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
 ?>
 
 
@@ -20,7 +20,7 @@ try {
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
                 <form action="edit_author.php" method="post">
-                    <div class="input-group mt-3 mb-3">
+                <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã thể loại</span>
                         <input type="text" value="<?=$author['ma_tgia']?>" class="form-control" name="id" readonly>
                     </div>
