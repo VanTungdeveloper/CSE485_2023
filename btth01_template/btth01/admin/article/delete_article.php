@@ -3,11 +3,11 @@
     include('../layout/header.php');
 
     $id = $_GET['id'];
-    $sql = "DELETE FROM theloai WHERE ma_tgia=$id;";
+    $sql = "DELETE FROM baiviet WHERE ma_bviet=$id;";
     try {
         $statement = $connect->prepare($sql);
         $statement->execute();
-        header("Location: author.php");
+        header("Location: article.php");
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
