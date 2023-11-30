@@ -1,3 +1,39 @@
+<?php
+    require('./admin/db/connect.php');
+
+
+    $sql = "select * from users";
+    $username = $password = '';
+    $error =  '';
+
+    if ($connect != null) {
+        try {
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $users = $statement->fetchAll();
+            if (isset($_POST['submit'])) {
+                $username = htmlspecialchars($_POST['username']);
+                $password = htmlspecialchars($_POST['password']);
+                foreach ($users as $user){
+                    $username_db = $user['username'];
+                    $password_db = $user['password'];
+
+                    if( $username_db == $username &&  $password_db == $password){
+                        header("Location: admin/index.php");
+                    }else{
+                        $error='Tên đăng nhập hoặc mật khẩu không chính xác';
+                    }
+                }
+            }
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            $connect = null;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,22 +88,25 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="login.php" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="username" >
+                                <input type="text" name="username" class="form-control" placeholder="username" >
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                                <input type="text" class="form-control" placeholder="password" >
+                                <input type="text" name="password" class="form-control" placeholder="password" >
                             </div>
                             
                             <div class="row align-items-center remember">
                                 <input type="checkbox">Remember Me
                             </div>
+                            <p class="text-danger">
+                                <?php echo $error; ?>
+                            </p>
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-end login_btn">
+                                <input name="submit" type="submit" value="Login" class="btn float-end login_btn">
                             </div>
                         </form>
                     </div>

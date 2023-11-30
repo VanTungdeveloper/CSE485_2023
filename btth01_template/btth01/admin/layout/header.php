@@ -1,5 +1,5 @@
 <?php
-    require_once('D:\xampp\htdocs\CSE485_2023\btth01_template\btth01\admin\db\connect.php');
+    require('D:\xampp\htdocs\CSE485_2023\btth01_template\btth01\admin\db\connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,13 +31,13 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/CSE485_2023/btth01_template/btth01/admin/category/category.php">Thể loại</a>
+                        <a class="nav-link" href="../admin/category/category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/CSE485_2023/btth01_template/btth01/admin//author/author.php">Tác giả</a>
+                        <a class="nav-link" href="../author/author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/CSE485_2023/btth01_template/btth01/admin//article/article.php">Bài viết</a>
+                        <a class="nav-link" href="../article/article.php">Bài viết</a>
                     </li>
                 </ul>
             </div>

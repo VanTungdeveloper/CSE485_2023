@@ -106,7 +106,7 @@ try {
 
         <div class="form-group  float-end ">
             <input  name="submit" type="submit" value="Lưu" class="btn btn-success">
-            <a href="http://localhost/CSE485_2023/btth01_template/btth01/admin/article/article.php" class="btn btn-warning ">Quay lại</a>
+            <a href="article.php" class="btn btn-warning ">Quay lại</a>
         </div>
     </form>
     </div>

@@ -54,7 +54,7 @@
                     </p>
                     <div class="form-group  float-end ">
                         <input  name="submit" type="submit" value="Thêm" class="btn btn-success">
-                        <a href="http://localhost/CSE485_2023/btth01_template/btth01/admin/author/author.php" class="btn btn-warning ">Quay lại</a>
+                        <a href="author.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
